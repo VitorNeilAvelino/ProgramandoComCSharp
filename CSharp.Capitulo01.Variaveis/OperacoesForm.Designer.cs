@@ -32,6 +32,7 @@ namespace CSharp.Capitulo01.Variaveis
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.operaçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aritmeticasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.resultadoListBox = new System.Windows.Forms.ListBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,11 +61,21 @@ namespace CSharp.Capitulo01.Variaveis
             this.aritmeticasToolStripMenuItem.Text = "&Aritméticas";
             this.aritmeticasToolStripMenuItem.Click += new System.EventHandler(this.aritmeticasToolStripMenuItem_Click);
             // 
+            // resultadoListBox
+            // 
+            this.resultadoListBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.resultadoListBox.FormattingEnabled = true;
+            this.resultadoListBox.Location = new System.Drawing.Point(0, 24);
+            this.resultadoListBox.Name = "resultadoListBox";
+            this.resultadoListBox.Size = new System.Drawing.Size(800, 426);
+            this.resultadoListBox.TabIndex = 1;
+            // 
             // OperacoesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.resultadoListBox);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "OperacoesForm";
@@ -81,6 +92,7 @@ namespace CSharp.Capitulo01.Variaveis
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem operaçõesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aritmeticasToolStripMenuItem;
+        private System.Windows.Forms.ListBox resultadoListBox;
     }
 }
 

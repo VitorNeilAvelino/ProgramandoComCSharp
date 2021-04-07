@@ -29,6 +29,9 @@ namespace CSharp.Capitulo01.Variaveis
 
             MessageBox.Show(y);
             MessageBox.Show(z);
+            MessageBox.Show(data.ToShortDateString());
+            MessageBox.Show(string.Format("{0:dd/MM/yyyy}", data));
+            MessageBox.Show(string.Format("{0:N2}", x));
         }
     }
 }
