@@ -1,12 +1,12 @@
 ﻿using System;
 using static System.Console;
 
-namespace CSharp.Capitulo01.ValeTransporte
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
+//namespace CSharp.Capitulo01.ValeTransporte
+//{
+    //class Program
+    //{
+    //    static void Main(string[] args)
+    //    {
             Inicio:
 
             Write("Informe o nome do funcionário: ");
@@ -43,6 +43,6 @@ namespace CSharp.Capitulo01.ValeTransporte
             Console.Clear();
 
             goto Inicio;            
-        }
-    }
-}
+    //    }
+    //}
+//}
