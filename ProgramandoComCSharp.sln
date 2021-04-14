@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharp.Capitulo02.GeradorSe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharp.Capitulo02.EstruturasControle.Testes", "CSharp.Capitulo02.EstruturasControle.Testes\CSharp.Capitulo02.EstruturasControle.Testes.csproj", "{6D5E0315-E44B-42B6-9DDF-EAC815BDB999}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fintech.Dominio", "Fintech.Dominio\Fintech.Dominio.csproj", "{F8F64EA4-39FD-4E4B-B1D6-09017FA67682}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{6D5E0315-E44B-42B6-9DDF-EAC815BDB999}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6D5E0315-E44B-42B6-9DDF-EAC815BDB999}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6D5E0315-E44B-42B6-9DDF-EAC815BDB999}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8F64EA4-39FD-4E4B-B1D6-09017FA67682}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8F64EA4-39FD-4E4B-B1D6-09017FA67682}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8F64EA4-39FD-4E4B-B1D6-09017FA67682}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8F64EA4-39FD-4E4B-B1D6-09017FA67682}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
