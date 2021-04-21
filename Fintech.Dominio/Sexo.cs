@@ -2,7 +2,7 @@
 {
     public enum Sexo
     {
-        Masculino = 1,
-        Feminino = 2
+        Feminino = 1,
+        Masculino = 2
     }
 }

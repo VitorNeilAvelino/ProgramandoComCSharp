@@ -24,17 +24,17 @@ namespace CSharp.Capitulo02.GeradorSenha
             }
             while (quantidadeDigitos == 0);
 
-            var senha = "";
-            var randomico = new Random();
+            //var senha = "";
+            //var randomico = new Random();
 
-            for (int i = 0; i < quantidadeDigitos; i++)
-            {
-                var numero = randomico.Next(0, 9);
+            //for (int i = 0; i < quantidadeDigitos; i++)
+            //{
+            //    var numero = randomico.Next(0, 10);
 
-                senha += numero; //rnd.Next(0, 9);
-            }
+            //    senha += numero; //rnd.Next(0, 9);
+            //}
 
-            Console.WriteLine($"Senha gerada: {senha}");
+            Console.WriteLine($"Senha gerada: {new Senha(quantidadeDigitos).Valor}");
             Environment.Exit(0);
         }
 
