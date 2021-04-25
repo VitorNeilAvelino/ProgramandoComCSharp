@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Fintech.Dominio
 {
@@ -9,6 +10,11 @@ namespace Fintech.Dominio
         public DateTime DataNascimento { get; set; }
         public Sexo Sexo { get; set; }
         public Endereco EnderecoResidencial { get; set; }
-        public ContaCorrente ContaCorrente { get; set; }
+        public List<Conta> Contas { get; set; }
+
+        public override string ToString()
+        {
+            return $"{Nome} - {Cpf}";
+        }
     }
 }
