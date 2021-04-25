@@ -87,7 +87,11 @@
                 </DockPanel>
                 <DockPanel>
                     <Label Content="Tipo da conta:" Width="120" HorizontalContentAlignment="Right"/>
-                    <ComboBox Name="tipoContaComboBox" HorizontalAlignment="Left" VerticalContentAlignment="Center" Height="23" Width="150" />
+                    <ComboBox Name="tipoContaComboBox" SelectionChanged="tipoContaComboBox_SelectionChanged" HorizontalAlignment="Left" VerticalContentAlignment="Center" Height="23" Width="150" />
+                </DockPanel>
+                <DockPanel Name="limiteDockPanel" Visibility="Collapsed">
+                    <Label Content="Limite:" Width="120" HorizontalContentAlignment="Right"/>
+                    <TextBox Name="limiteTextBox" Width="150" HorizontalAlignment="Left" VerticalContentAlignment="Center" Height="23" TextWrapping="NoWrap" />
                 </DockPanel>
                 <DockPanel>
                     <Button Name="incluirContaButton" Content="Incluir" Margin="120 2 0 0" Height="23" HorizontalAlignment="Left" Width="150"/>

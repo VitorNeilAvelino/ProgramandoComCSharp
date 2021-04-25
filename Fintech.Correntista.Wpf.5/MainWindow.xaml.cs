@@ -86,8 +86,23 @@ namespace Fintech.Correntista.Wpf._5
 
             if (abaSelecionada.Header.ToString() == "Contas" && ClienteSelecionado == null)
             {
-                MessageBox.Show("Selecione o Cliente na aba Clientes");
+                MessageBox.Show("Selecione o Cliente na aba Clientes.");
                 clientesTabItem.Focus();
+            }
+        }
+
+        private void tipoContaComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var tipoConta = (TipoConta)tipoContaComboBox.SelectedItem;
+
+            if (tipoConta == TipoConta.ContaEspecial)
+            {
+                limiteDockPanel.Visibility = Visibility.Visible;
+                limiteTextBox.Focus();
+            }
+            else
+            {
+                limiteDockPanel.Visibility = Visibility.Collapsed;
             }
         }
     }
