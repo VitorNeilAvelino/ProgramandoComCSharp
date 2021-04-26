@@ -27,8 +27,8 @@ namespace Fintech.Correntista.Wpf._5
             tipoContaComboBox.Items.Add(TipoConta.ContaEspecial);
             tipoContaComboBox.Items.Add(TipoConta.Poupanca);
 
-            bancoComboBox.Items.Add(new Banco {Nome = "Banco 1", Numero = 177 });
-            bancoComboBox.Items.Add(new Banco {Nome = "Banco 2", Numero = 178 });
+            bancoComboBox.Items.Add(new Banco { Nome = "Banco 1", Numero = 177 });
+            bancoComboBox.Items.Add(new Banco { Nome = "Banco 2", Numero = 178 });
 
             clienteDataGrid.ItemsSource = Clientes;
         }
@@ -39,16 +39,16 @@ namespace Fintech.Correntista.Wpf._5
             endereco.Logradouro = logradouroTextBox.Text;
             endereco.Numero = numeroLogradouroTextBox.Text;
             endereco.Cidade = cidadeTextBox.Text;
-            endereco.Cep = cepTextBox.Text;            
+            endereco.Cep = cepTextBox.Text;
 
             Cliente cliente = new();
             cliente.Cpf = cpfTextBox.Text;
             cliente.Nome = nomeTextBox.Text;
             cliente.DataNascimento = Convert.ToDateTime(dataNascimentoTextBox.Text, new CultureInfo("pt-BR"));
             cliente.Sexo = (Sexo)sexoComboBox.SelectedItem;
-            cliente.EnderecoResidencial = endereco;            
+            cliente.EnderecoResidencial = endereco;
 
-            Clientes.Add(cliente);            
+            Clientes.Add(cliente);
 
             MessageBox.Show("Cliente cadastrado com sucesso");
             LimparControlesCliente();
@@ -72,7 +72,7 @@ namespace Fintech.Correntista.Wpf._5
         {
             var botaoClicado = (Button)sender;
             var clienteSelecionado = botaoClicado.DataContext;
-            
+
             ClienteSelecionado = (Cliente)clienteSelecionado;
 
             clienteTextBox.Text = $"{ClienteSelecionado.Nome} - {ClienteSelecionado.Cpf}";
@@ -104,6 +104,35 @@ namespace Fintech.Correntista.Wpf._5
             {
                 limiteDockPanel.Visibility = Visibility.Collapsed;
             }
+        }
+
+        private void incluirContaButton_Click(object sender, RoutedEventArgs e)
+        {
+            Conta conta = null;
+
+            var agencia = new Agencia();
+            agencia.Banco = (Banco)bancoComboBox.SelectedItem;
+            agencia.Numero = Convert.ToInt32(numeroAgenciaTextBox.Text);
+            agencia.DigitoVerificador = Convert.ToInt32(dvAgenciaTextBox.Text);
+
+            var numero = Convert.ToInt32(numeroContaTextBox.Text);
+            var digitoVerificador = dvContaTextBox.Text;
+
+            switch ((TipoConta)tipoContaComboBox.SelectedItem)
+            {
+                case TipoConta.ContaCorrente:
+                    conta = new ContaCorrente(agencia, numero, digitoVerificador);
+                    break;
+                case TipoConta.ContaEspecial:
+                    var limite = Convert.ToDecimal(limiteTextBox.Text);
+                    conta = new ContaEspecial(agencia, numero, digitoVerificador, limite);
+                    break;
+                case TipoConta.Poupanca:
+                    conta = new Poupanca(agencia, numero, digitoVerificador);
+                    break;
+            }
+
+            ClienteSelecionado.Contas.Add(conta);
         }
     }
 }
