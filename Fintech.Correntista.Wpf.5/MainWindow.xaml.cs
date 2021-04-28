@@ -84,7 +84,7 @@ namespace Fintech.Correntista.Wpf._5
         {
             var abaSelecionada = (TabItem)principalTabControl.SelectedItem;
 
-            if (abaSelecionada.Header.ToString() == "Contas" && ClienteSelecionado == null)
+            if (abaSelecionada.Name == "contasTabItem" && ClienteSelecionado == null)
             {
                 MessageBox.Show("Selecione o Cliente na aba Clientes.");
                 clientesTabItem.Focus();
@@ -93,6 +93,8 @@ namespace Fintech.Correntista.Wpf._5
 
         private void tipoContaComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if (tipoContaComboBox.SelectedIndex == -1) return;
+
             var tipoConta = (TipoConta)tipoContaComboBox.SelectedItem;
 
             if (tipoConta == TipoConta.ContaEspecial)
@@ -133,6 +135,24 @@ namespace Fintech.Correntista.Wpf._5
             }
 
             ClienteSelecionado.Contas.Add(conta);
+
+            MessageBox.Show("Conta adicionada com sucesso.");
+            LimparControlesConta();
+            clienteDataGrid.Items.Refresh();
+            clientesTabItem.Focus();
+            pesquisaClienteTabItem.Focus();
+        }
+
+        private void LimparControlesConta()
+        {
+            clienteTextBox.Clear();
+            bancoComboBox.SelectedIndex = -1;
+            numeroAgenciaTextBox.Clear();
+            dvAgenciaTextBox.Clear();
+            numeroContaTextBox.Clear();
+            dvContaTextBox.Clear();
+            tipoContaComboBox.SelectedIndex = -1;
+            limiteTextBox.Clear();
         }
     }
 }

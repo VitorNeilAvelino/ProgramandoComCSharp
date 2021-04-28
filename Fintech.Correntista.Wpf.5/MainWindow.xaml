@@ -14,6 +14,7 @@
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Nome" Binding="{Binding Path=Nome}"/>
                             <DataGridTextColumn Header="CPF" Binding="{Binding Path=Cpf}"/>
+                            <DataGridTextColumn Header="Logradouro" Binding="{Binding Path=EnderecoResidencial.Logradouro}"/>
                             <DataGridTemplateColumn Header="Contas">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
