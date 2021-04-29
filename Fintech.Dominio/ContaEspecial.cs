@@ -19,21 +19,26 @@ namespace Fintech.Dominio
 
         public override void EfetuarOperacao(decimal valor, Operacao operacao)
         {
+            var sucesso = true;
+
             switch (operacao)
             {
                 case Operacao.Deposito:
                     Saldo += valor;
-                    AdicionarMovimento(new Movimento(operacao, valor));
                     break;
                 case Operacao.Saque:
                     if (Saldo + Limite >= valor)
                     {
                         Saldo -= valor;
-                        AdicionarMovimento(new Movimento(operacao, valor));
+                    }
+                    else
+                    {
+                        sucesso = false;
                     }
                     break;
             }
 
+            if (sucesso) AdicionarMovimento(new Movimento(operacao, valor));
         }
     }
 }

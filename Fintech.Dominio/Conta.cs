@@ -25,22 +25,26 @@ namespace Fintech.Dominio
 
         public virtual void EfetuarOperacao(decimal valor, Operacao operacao)
         {
+            var sucesso = true;
+
             switch (operacao)
             {
                 case Operacao.Deposito:
                     Saldo += valor;
-                    AdicionarMovimento(new Movimento(operacao, valor));
                     break;
                 case Operacao.Saque:
                     if (Saldo >= valor)
                     {
                         Saldo -= valor;
-                        AdicionarMovimento(new Movimento(operacao, valor));
+                    }
+                    else
+                    {
+                        sucesso = false;
                     }
                     break;
             }
 
-            AdicionarMovimento(new Movimento(operacao, valor));
+            if (sucesso) AdicionarMovimento(new Movimento(operacao, valor));
         }
 
         protected void AdicionarMovimento(Movimento movimento)
