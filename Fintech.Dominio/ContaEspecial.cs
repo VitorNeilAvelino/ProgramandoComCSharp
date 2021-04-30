@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Fintech.Dominio
+﻿namespace Fintech.Dominio
 {
     public class ContaEspecial : ContaCorrente
     {
@@ -17,9 +15,10 @@ namespace Fintech.Dominio
         public decimal Limite { get; set; }
         public override bool EmissaoChequeHabilitada { get; set; } = true;
 
-        public override void EfetuarOperacao(decimal valor, Operacao operacao)
+        public override Movimento EfetuarOperacao(decimal valor, Operacao operacao)
         {
             var sucesso = true;
+            Movimento movimento = null;
 
             switch (operacao)
             {
@@ -38,7 +37,14 @@ namespace Fintech.Dominio
                     break;
             }
 
-            if (sucesso) AdicionarMovimento(new Movimento(operacao, valor));
+            if (sucesso)
+            {
+                movimento = new Movimento(operacao, valor);
+
+                AdicionarMovimento(movimento);
+            }
+
+            return movimento;
         }
     }
 }

@@ -25,6 +25,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fintech.DominioTests", "Fin
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharp.Capitulo08.Colecoes.Testes", "CSharp.Capitulo08.Colecoes.Testes\CSharp.Capitulo08.Colecoes.Testes.csproj", "{C03E8216-D91C-474F-ACDB-0D310AC3EC4C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fintech.Repositorios.SistemaArquivos", "Fintech.Repositorios.SistemaArquivos\Fintech.Repositorios.SistemaArquivos.csproj", "{46CD2FB2-EDA9-43A2-9EA4-2B08F0D2FD08}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fintech.Repositorios.SistemaArquivosTests", "Fintech.Repositorios.SistemaArquivosTests\Fintech.Repositorios.SistemaArquivosTests.csproj", "{DC048897-0537-4642-BA89-EAE03AB62F49}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +79,14 @@ Global
 		{C03E8216-D91C-474F-ACDB-0D310AC3EC4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C03E8216-D91C-474F-ACDB-0D310AC3EC4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C03E8216-D91C-474F-ACDB-0D310AC3EC4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46CD2FB2-EDA9-43A2-9EA4-2B08F0D2FD08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46CD2FB2-EDA9-43A2-9EA4-2B08F0D2FD08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46CD2FB2-EDA9-43A2-9EA4-2B08F0D2FD08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46CD2FB2-EDA9-43A2-9EA4-2B08F0D2FD08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC048897-0537-4642-BA89-EAE03AB62F49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC048897-0537-4642-BA89-EAE03AB62F49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC048897-0537-4642-BA89-EAE03AB62F49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC048897-0537-4642-BA89-EAE03AB62F49}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

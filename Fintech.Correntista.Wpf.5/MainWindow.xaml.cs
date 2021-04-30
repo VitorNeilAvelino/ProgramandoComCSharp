@@ -1,4 +1,5 @@
 ﻿using Fintech.Dominio;
+using Fintech.Repositorios.SistemaArquivos;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -169,7 +170,10 @@ namespace Fintech.Correntista.Wpf._5
             var operacao = (Operacao)operacaoComboBox.SelectedItem;
             var valor = Convert.ToDecimal(valorTextBox.Text);
 
-            conta.EfetuarOperacao(valor, operacao);
+            var movimento = conta.EfetuarOperacao(valor, operacao);
+
+            var repositorio = new MovimentoRepositorio();
+            repositorio.Inserir(movimento);
 
             movimentacaoDataGrid.ItemsSource = conta.Movimentos;
             movimentacaoDataGrid.Items.Refresh();
