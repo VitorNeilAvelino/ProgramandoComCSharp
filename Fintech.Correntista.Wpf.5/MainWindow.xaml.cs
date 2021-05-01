@@ -10,6 +10,7 @@ namespace Fintech.Correntista.Wpf._5
 {
     public partial class MainWindow : Window
     {
+        readonly MovimentoRepositorio movimentoRepositorio = new(Properties.Settings.Default.CaminhoArquivoMovimento);
         public List<Cliente> Clientes { get; set; } = new List<Cliente>();
         public Cliente ClienteSelecionado { get; set; }
 
@@ -172,8 +173,7 @@ namespace Fintech.Correntista.Wpf._5
 
             var movimento = conta.EfetuarOperacao(valor, operacao);
 
-            var repositorio = new MovimentoRepositorio();
-            repositorio.Inserir(movimento);
+            movimentoRepositorio.Inserir(movimento);
 
             movimentacaoDataGrid.ItemsSource = conta.Movimentos;
             movimentacaoDataGrid.Items.Refresh();
@@ -212,6 +212,8 @@ namespace Fintech.Correntista.Wpf._5
             }
 
             var conta = (Conta)contaComboBox.SelectedItem;
+
+            conta.Movimentos = movimentoRepositorio.Selecionar(conta.Agencia.Numero, conta.Numero);
 
             movimentacaoDataGrid.ItemsSource = conta.Movimentos;
             saldoTextBox.Text = conta.Saldo.ToString();

@@ -144,7 +144,7 @@
                 </DockPanel>
                 <DockPanel>
                     <DataGrid Name="movimentacaoDataGrid" AutoGenerateColumns="False" IsReadOnly="True"  
-                              CanUserAddRows="false" Width="580" HorizontalAlignment="Left" Margin="120 2 0 0">
+                              CanUserAddRows="false" RowHeaderWidth="0" Width="580" HorizontalAlignment="Left" Margin="120 2 0 0">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Data" Binding="{Binding Path=Data}"/>
                             <DataGridTextColumn Header="Operação" Binding="{Binding Path=Operacao}"/>

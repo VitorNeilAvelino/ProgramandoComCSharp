@@ -7,7 +7,7 @@ namespace Fintech.Dominio
     {
         void Inserir(Movimento movimento);
         void Atualizar(Movimento movimento) => throw new InvalidOperationException();
-        List<Movimento> Selecionar(Conta conta);
+        List<Movimento> Selecionar(int numeroAgencia, int numeroConta);
         void Excluir(int id)
         {
             throw new InvalidOperationException();
