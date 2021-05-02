@@ -23,11 +23,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSharp.Capitulo02.GeradorSe
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fintech.DominioTests", "Fintech.DominioTests\Fintech.DominioTests.csproj", "{0A8896C3-8417-4E11-BEC6-254594A1DDDE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharp.Capitulo08.Colecoes.Testes", "CSharp.Capitulo08.Colecoes.Testes\CSharp.Capitulo08.Colecoes.Testes.csproj", "{C03E8216-D91C-474F-ACDB-0D310AC3EC4C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSharp.Capitulo08.Colecoes.Testes", "CSharp.Capitulo08.Colecoes.Testes\CSharp.Capitulo08.Colecoes.Testes.csproj", "{C03E8216-D91C-474F-ACDB-0D310AC3EC4C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fintech.Repositorios.SistemaArquivos", "Fintech.Repositorios.SistemaArquivos\Fintech.Repositorios.SistemaArquivos.csproj", "{46CD2FB2-EDA9-43A2-9EA4-2B08F0D2FD08}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fintech.Repositorios.SistemaArquivos", "Fintech.Repositorios.SistemaArquivos\Fintech.Repositorios.SistemaArquivos.csproj", "{46CD2FB2-EDA9-43A2-9EA4-2B08F0D2FD08}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fintech.Repositorios.SistemaArquivosTests", "Fintech.Repositorios.SistemaArquivosTests\Fintech.Repositorios.SistemaArquivosTests.csproj", "{DC048897-0537-4642-BA89-EAE03AB62F49}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fintech.Repositorios.SistemaArquivosTests", "Fintech.Repositorios.SistemaArquivosTests\Fintech.Repositorios.SistemaArquivosTests.csproj", "{DC048897-0537-4642-BA89-EAE03AB62F49}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fintech.Repositorios.SqlServer", "Fintech.Repositorios.SqlServer\Fintech.Repositorios.SqlServer.csproj", "{2F5890F5-9FBD-40A0-8896-EC3F4BCDB094}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fintech.Repositorios.SqlServerTests", "Fintech.Repositorios.SqlServerTests\Fintech.Repositorios.SqlServerTests.csproj", "{C8FEB8EC-1DEB-4723-8DBC-E5A78D72AAFA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -87,6 +91,14 @@ Global
 		{DC048897-0537-4642-BA89-EAE03AB62F49}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DC048897-0537-4642-BA89-EAE03AB62F49}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DC048897-0537-4642-BA89-EAE03AB62F49}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F5890F5-9FBD-40A0-8896-EC3F4BCDB094}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F5890F5-9FBD-40A0-8896-EC3F4BCDB094}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F5890F5-9FBD-40A0-8896-EC3F4BCDB094}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F5890F5-9FBD-40A0-8896-EC3F4BCDB094}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8FEB8EC-1DEB-4723-8DBC-E5A78D72AAFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8FEB8EC-1DEB-4723-8DBC-E5A78D72AAFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8FEB8EC-1DEB-4723-8DBC-E5A78D72AAFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8FEB8EC-1DEB-4723-8DBC-E5A78D72AAFA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

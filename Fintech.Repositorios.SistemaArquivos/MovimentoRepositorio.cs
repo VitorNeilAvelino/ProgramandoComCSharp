@@ -1,4 +1,5 @@
 ﻿using Fintech.Dominio;
+using Fintech.Dominio.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.IO;

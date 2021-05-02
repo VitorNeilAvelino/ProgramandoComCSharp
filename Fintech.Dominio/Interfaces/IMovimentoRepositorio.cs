@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Fintech.Dominio
+namespace Fintech.Dominio.Interfaces
 {
     public interface IMovimentoRepositorio
     {
