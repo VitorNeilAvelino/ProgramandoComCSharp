@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="FontAwesome5.WPF" Version="1.0.5" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Fintech.Dominio\Fintech.Dominio.csproj" />
     <ProjectReference Include="..\Fintech.Repositorios.SistemaArquivos\Fintech.Repositorios.SistemaArquivos.csproj" />
   </ItemGroup>
