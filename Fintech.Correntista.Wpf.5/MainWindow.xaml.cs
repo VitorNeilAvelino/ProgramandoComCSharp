@@ -3,6 +3,7 @@ using Fintech.Repositorios.SistemaArquivos;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -167,18 +168,48 @@ namespace Fintech.Correntista.Wpf._5
 
         private void incluirOperacaoButton_Click(object sender, RoutedEventArgs e)
         {
-            var conta = (Conta)contaComboBox.SelectedItem;
-            var operacao = (Operacao)operacaoComboBox.SelectedItem;
-            var valor = Convert.ToDecimal(valorTextBox.Text);
+            try
+            {
+                var conta = (Conta)contaComboBox.SelectedItem;
+                var operacao = (Operacao)operacaoComboBox.SelectedItem;
+                var valor = Convert.ToDecimal(valorTextBox.Text);
 
-            var movimento = conta.EfetuarOperacao(valor, operacao);
+                var movimento = conta.EfetuarOperacao(valor, operacao);
 
-            movimentoRepositorio.Inserir(movimento);
+                movimentoRepositorio.Inserir(movimento);
 
-            movimentacaoDataGrid.ItemsSource = conta.Movimentos;
-            movimentacaoDataGrid.Items.Refresh();
+                movimentacaoDataGrid.ItemsSource = conta.Movimentos;
+                movimentacaoDataGrid.Items.Refresh();
 
-            saldoTextBox.Text = conta.Saldo.ToString();
+                saldoTextBox.Text = conta.Saldo.ToString("c");
+            }
+            catch (FileNotFoundException excecao)
+            {
+                MessageBox.Show($"O arquivo {excecao.FileName} não foi encontrado.");
+            }
+            catch (DirectoryNotFoundException)
+            {
+                MessageBox.Show($"O diretório {Properties.Settings.Default.CaminhoArquivoMovimento} não foi encontrado.");
+            }
+            catch (UnauthorizedAccessException)
+            {
+                MessageBox
+                    .Show($"O arquivo {Properties.Settings.Default.CaminhoArquivoMovimento} " +
+                    $"está com o atributo Somente Leitura.");
+            }
+            catch (SaldoInsuficienteException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Eita! Algo deu errado e em breve teremos uma solução."/* + ex.Message*/);
+                //Logar(ex); - log4Net
+            }
+            finally
+            {
+                // É executado sempre! Mesmo que haja algum return no código.
+            }
         }
 
         private void SelecionarContaButtonClick(object sender, RoutedEventArgs e)
