@@ -33,6 +33,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fintech.Repositorios.SqlSer
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fintech.Repositorios.SqlServerTests", "Fintech.Repositorios.SqlServerTests\Fintech.Repositorios.SqlServerTests.csproj", "{C8FEB8EC-1DEB-4723-8DBC-E5A78D72AAFA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharp.Capitulo10.DelegatesLambda.Testes", "CSharp.Capitulo10.DelegatesLambda.Testes\CSharp.Capitulo10.DelegatesLambda.Testes.csproj", "{B7CC59C1-C530-4B37-8860-325A3711B341}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -99,6 +101,10 @@ Global
 		{C8FEB8EC-1DEB-4723-8DBC-E5A78D72AAFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C8FEB8EC-1DEB-4723-8DBC-E5A78D72AAFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C8FEB8EC-1DEB-4723-8DBC-E5A78D72AAFA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7CC59C1-C530-4B37-8860-325A3711B341}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7CC59C1-C530-4B37-8860-325A3711B341}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7CC59C1-C530-4B37-8860-325A3711B341}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7CC59C1-C530-4B37-8860-325A3711B341}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
