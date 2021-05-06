@@ -3,6 +3,7 @@ using Fintech.Dominio.Interfaces;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using Dapper;
+using System.Threading.Tasks;
 
 namespace Fintech.Repositorios.SqlServer
 {
@@ -13,6 +14,16 @@ namespace Fintech.Repositorios.SqlServer
         public MovimentoRepositorio(string stringConexao)
         {
             this.stringConexao = stringConexao;
+        }
+
+        public void Atualizar(Movimento cliente)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void Excluir(int id)
+        {
+            throw new System.NotImplementedException();
         }
 
         public void Inserir(Movimento movimento)
@@ -34,6 +45,21 @@ namespace Fintech.Repositorios.SqlServer
             {
                 return conexao.Query<Movimento>(instrucao, new { numeroConta }).AsList();
             }
+        }
+
+        public List<Movimento> Selecionar()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Movimento Selecionar(int id)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Task<List<Movimento>> SelecionarAsync()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

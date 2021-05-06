@@ -1,16 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Fintech.Dominio.Interfaces
 {
-    public interface IMovimentoRepositorio
+    public interface IMovimentoRepositorio : ICrudRepositorio<Movimento>
     {
-        void Inserir(Movimento movimento);
-        void Atualizar(Movimento movimento) => throw new InvalidOperationException();
         List<Movimento> Selecionar(int numeroAgencia, int numeroConta);
-        void Excluir(int id)
-        {
-            throw new InvalidOperationException();
-        }
     }
 }

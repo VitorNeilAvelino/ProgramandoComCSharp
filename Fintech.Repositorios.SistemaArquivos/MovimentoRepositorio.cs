@@ -89,5 +89,30 @@ namespace Fintech.Repositorios.SistemaArquivos
 
             return movimentos;
         }
+
+        public void Atualizar(Movimento cliente)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Movimento> Selecionar()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Movimento Selecionar(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Excluir(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<List<Movimento>> SelecionarAsync()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
