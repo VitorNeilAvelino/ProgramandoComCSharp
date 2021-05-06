@@ -4,33 +4,26 @@ namespace CSharp.Capitulo10.DelegatesLambda.Testes
 {
     public delegate int EfetuarOperacao(int valor1, int valor2);
 
-    public class Calculadora
+    public static class Calculadora
     {
-        public Calculadora(TipoOperacao tipoOperacao)
-        {
-            TipoOperacao = tipoOperacao;
-        }
-
-        private TipoOperacao TipoOperacao { get; set; }
-
-        private int Somar(int x, int y)
+        private static int Somar(int x, int y)
         {
             return x + y;
         }
 
-        private int Subtrair(int x, int y)
+        private static int Subtrair(int x, int y)
         {
             return x - y;
         }
 
-        private int Multiplicar(int x, int y, int z)
+        private static int Multiplicar(int x, int y, int z) // não atende ao delegate.
         {
             return x * y * z;
         }
 
-        public EfetuarOperacao ObterOperacao()
+        public static EfetuarOperacao ObterOperacao(TipoOperacao tipoOperacao)
         {
-            switch (TipoOperacao)
+            switch (tipoOperacao)
             {
                 case TipoOperacao.Soma:
                     return Somar;

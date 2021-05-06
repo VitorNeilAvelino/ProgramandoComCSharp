@@ -114,5 +114,10 @@ namespace Fintech.Repositorios.SistemaArquivos
         {
             throw new NotImplementedException();
         }
+
+        public List<Movimento> Selecionar(Predicate<Movimento> consulta)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

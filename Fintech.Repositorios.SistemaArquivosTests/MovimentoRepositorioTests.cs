@@ -88,5 +88,18 @@ namespace Fintech.Repositorios.SistemaArquivos.Tests
 
             Assert.IsTrue(movimentos.Count == 5);
         }
+
+        [TestMethod]
+        public void GroupByTeste()
+        {
+            var agrupamento = repositorio.Selecionar(1, 1)
+                .GroupBy(m => m.Operacao)
+                .Select(g => new { Operacao = g.Key, Total = g.Sum(m => m.Valor) });
+
+            foreach (var item in agrupamento)
+            {
+                Console.WriteLine($"{item.Operacao}: {item.Total:c}");
+            }
+        }
     }
 }

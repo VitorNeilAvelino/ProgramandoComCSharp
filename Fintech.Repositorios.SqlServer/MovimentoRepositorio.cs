@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using Dapper;
 using System.Threading.Tasks;
+using System;
 
 namespace Fintech.Repositorios.SqlServer
 {
@@ -55,6 +56,15 @@ namespace Fintech.Repositorios.SqlServer
         public Movimento Selecionar(int id)
         {
             throw new System.NotImplementedException();
+        }
+
+        public List<Movimento> Selecionar(Predicate<Movimento> consulta)
+        {
+
+            using (var conexao = new SqlConnection(stringConexao))
+            {
+                return conexao.Query<Movimento>("").AsList();
+            }
         }
 
         public Task<List<Movimento>> SelecionarAsync()

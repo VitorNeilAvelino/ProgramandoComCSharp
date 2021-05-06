@@ -33,6 +33,11 @@ namespace Fintech.Repositorios.SqlServer
             throw new NotImplementedException();
         }
 
+        public List<Cliente> Selecionar(Predicate<Cliente> consulta)
+        {
+            throw new NotImplementedException();
+        }
+
         public Task<List<Cliente>> SelecionarAsync()
         {
             throw new NotImplementedException();
