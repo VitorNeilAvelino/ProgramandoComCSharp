@@ -5,9 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Fintech.Correntista.Wpf._5"
         xmlns:fa5="http://schemas.fontawesome.com/icons/"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         mc:Ignorable="d"        
         Title="Fintech" WindowState="Maximized" d:DesignWidth="819.234" d:DesignHeight="419.234">
-    <Grid>       
+    <Grid>
         <TabControl x:Name="principalTabControl" SelectionChanged="principalTabControl_SelectionChanged">
             <TabItem Header="Clientes" Name="clientesTabItem">
                 <TabControl TabStripPlacement="Left">
@@ -42,10 +43,11 @@
                         </DataGrid>
                     </TabItem>
                     <TabItem Header="Cadastro">
-                        <StackPanel>
+                        <StackPanel>                            
                             <DockPanel>
                                 <Label Content="CPF:" Width="120" HorizontalContentAlignment="Right"/>
-                                <TextBox Name="cpfTextBox" VerticalContentAlignment="Center" Height="23" TextWrapping="NoWrap" />
+                                <xctk:MaskedTextBox x:Name="cpfTextBox" Mask="000\.000\.000-00" VerticalContentAlignment="Center" Height="23" TextWrapping="NoWrap" />
+                                <!--<TextBox Name="cpfTextBox" VerticalContentAlignment="Center" Height="23" TextWrapping="NoWrap" />-->
                             </DockPanel>
                             <DockPanel>
                                 <Label Content="Nome:" Width="120" HorizontalContentAlignment="Right"/>
@@ -165,6 +167,6 @@
         <Grid Name="mainSpinner" Visibility="Hidden">
             <fa5:ImageAwesome Icon="Solid_Spinner" Spin="True" Height="48" Width="48" />
             <Rectangle Fill="LightGray" Opacity="0.25" IsHitTestVisible="True"/>
-        </Grid>        
+        </Grid>
     </Grid>
 </Window>

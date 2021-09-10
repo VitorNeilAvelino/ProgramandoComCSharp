@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <PackageReference Include="FontAwesome5" Version="2.1.0" />
+    <PackageReference Include="Virzak.Extended.Wpf.Toolkit" Version="3.1.1" />
   </ItemGroup>
 
   <ItemGroup>
