@@ -20,7 +20,7 @@ namespace Fintech.Repositorios.SqlServer.Tests
         [TestMethod()]
         public void SelecionarTest()
         {
-            var movimentos = repositorio.Selecionar(1, 456);
+            var movimentos = repositorio.SelecionarAsync(1, 456).Result;
 
             Assert.IsTrue(movimentos.Count > 0);
         }

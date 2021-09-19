@@ -2,6 +2,6 @@
 {
     public interface IClienteRepositorio : ICrudRepositorio<Cliente>
     {
-
+        Cliente Selecionar(string cpf);
     }
 }

@@ -236,7 +236,7 @@ namespace Fintech.Correntista.Wpf._5
             saldoTextBox.Clear();
         }
 
-        private /*async*/ void contaComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private async void contaComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             mainSpinner.Visibility = Visibility.Visible;
 
@@ -247,8 +247,8 @@ namespace Fintech.Correntista.Wpf._5
 
             var conta = (Conta)contaComboBox.SelectedItem;
 
-            conta.Movimentos = movimentoRepositorio.Selecionar(conta.Agencia.Numero, conta.Numero);
-            //conta.Movimentos = await movimentoRepositorio.SelecionarAsync(conta.Agencia.Numero, conta.Numero);
+            //conta.Movimentos = movimentoRepositorio.Selecionar(conta.Agencia.Numero, conta.Numero);
+            conta.Movimentos = await movimentoRepositorio.SelecionarAsync(conta.Agencia.Numero, conta.Numero);
 
             mainSpinner.Visibility = Visibility.Hidden;
 

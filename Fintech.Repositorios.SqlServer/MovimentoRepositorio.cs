@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using Dapper;
 using System.Threading.Tasks;
-using System;
 
 namespace Fintech.Repositorios.SqlServer
 {
@@ -15,16 +14,6 @@ namespace Fintech.Repositorios.SqlServer
         public MovimentoRepositorio(string stringConexao)
         {
             this.stringConexao = stringConexao;
-        }
-
-        public void Atualizar(Movimento cliente)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void Excluir(int id)
-        {
-            throw new System.NotImplementedException();
         }
 
         public void Inserir(Movimento movimento)
@@ -38,38 +27,17 @@ namespace Fintech.Repositorios.SqlServer
             }
         }
 
-        public List<Movimento> Selecionar(int numeroAgencia, int numeroConta)
+        public async Task<List<Movimento>> SelecionarAsync(int numeroAgencia, int numeroConta)
         {
-            var instrucao = @$"Select Data, Operacao, Valor from Movimento where IdConta=@numeroConta";
+            var instrucao = @"Select Data, Operacao, Valor from Movimento
+                                        where IdConta=@numeroConta";
 
             using (var conexao = new SqlConnection(stringConexao))
             {
-                return conexao.Query<Movimento>(instrucao, new { numeroConta }).AsList();
+                var movimentos = await conexao.QueryAsync<Movimento>(instrucao, new { numeroConta });
+                //return movimentos.ToList();
+                return movimentos.AsList();
             }
-        }
-
-        public List<Movimento> Selecionar()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public Movimento Selecionar(int id)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public List<Movimento> Selecionar(Predicate<Movimento> consulta)
-        {
-
-            using (var conexao = new SqlConnection(stringConexao))
-            {
-                return conexao.Query<Movimento>("").AsList();
-            }
-        }
-
-        public Task<List<Movimento>> SelecionarAsync()
-        {
-            throw new System.NotImplementedException();
         }
     }
 }

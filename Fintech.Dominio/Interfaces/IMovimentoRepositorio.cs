@@ -1,9 +1,11 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Fintech.Dominio.Interfaces
 {
-    public interface IMovimentoRepositorio : ICrudRepositorio<Movimento>
+    public interface IMovimentoRepositorio
     {
-        List<Movimento> Selecionar(int numeroAgencia, int numeroConta);
+        void Inserir(Movimento movimento);
+        Task<List<Movimento>> SelecionarAsync(int numeroAgencia, int numeroConta);
     }
 }
