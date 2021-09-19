@@ -8,7 +8,7 @@ namespace Fintech.Repositorios.SistemaArquivos.Tests
     [TestClass()]
     public class MovimentoRepositorioTests
     {
-        private readonly MovimentoRepositorio repositorio = new MovimentoRepositorio("Dados\\Movimento.txt");
+        private readonly MovimentoRepositorio repositorio = new ("Dados\\Movimento.txt");
 
         [TestMethod()]
         public void IncluirTest()
@@ -37,11 +37,72 @@ namespace Fintech.Repositorios.SistemaArquivos.Tests
         }
 
         [TestMethod]
+        public void DelegateActionTeste()
+        {
+            var movimentos = repositorio.Selecionar(1, 1);
+
+            Action<Movimento> writeLine = m => Console.WriteLine($"{m.Data:d} - {m.Valor}"); // 2
+
+            //foreach (var item in collection) // pode ser usado o .ForEach abaixo.
+            //{
+
+            //}
+
+            movimentos.ForEach(EscreverMovimento); // 1
+            movimentos.ForEach(writeLine); // 2.1
+            movimentos.ForEach(m => Console.WriteLine($"{m.Data:d} - {m.Valor:c}")); // 3
+        }
+
+        private void EscreverMovimento(Movimento movimento) // 1
+        {
+            Console.WriteLine($"{movimento.Data:d} - {movimento.Valor}");
+        }
+
+        [TestMethod]
+        public void DelegatePredicateTeste()
+        {
+            var movimentos = repositorio.Selecionar(1, 1);
+
+            Predicate<Movimento> obterDepositos = m => m.Operacao == Operacao.Deposito; // 2
+
+            var depositos = movimentos.FindAll(EncontrarMovimentoDeposito); // 1
+            depositos = movimentos.FindAll(obterDepositos); // 2
+            depositos = movimentos.FindAll(m => m.Operacao == Operacao.Deposito); // 3
+
+            depositos.ForEach(d => Console.WriteLine(d.Valor));
+        }
+
+        private bool EncontrarMovimentoDeposito(Movimento movimento) // 1
+        {
+            return movimento.Operacao == Operacao.Deposito;
+        }
+
+        [TestMethod]
+        public void DelegateFunctionTeste()
+        {
+            var movimentos = repositorio.Selecionar(1, 1);
+
+            Func<Movimento, decimal> obterCampoValor = m => m.Valor; // 2
+
+            var totalDepositos = movimentos.Where(m => m.Operacao == Operacao.Deposito).Sum(RetornarCampoSoma); // 1
+            totalDepositos = movimentos.Where(m => m.Operacao == Operacao.Deposito).Sum(obterCampoValor); // 2
+            totalDepositos = movimentos.Where(m => m.Operacao == Operacao.Deposito).Sum(m => m.Valor); // 3
+            
+            Console.WriteLine(totalDepositos);
+        }
+
+        private decimal RetornarCampoSoma(Movimento movimento) //1
+        {
+            return movimento.Valor;
+        }
+
+        [TestMethod]
         public void OrderByTeste()
         {
             var movimentos = repositorio.Selecionar(1, 1)
                 .OrderBy(m => m.Valor)
-                .OrderByDescending(m => m.Data);
+                .ThenBy(m => m.Operacao)
+                .ThenByDescending(m => m.Data);
 
             var primeiro = movimentos.First();
 
